@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: 0ceb63e57146459408dbb146002df178
+timeCreated: 1445692083
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprSF_ArmRightUpper
+    21300002: sprSF_ArmRightLower
+    21300004: sprSF_HandRight
+    21300006: sprSF_Torso
+    21300008: sprSF_ArmLeftUpper
+    21300010: sprSF_ArmLeftLower
+    21300012: sprSF_HandLeft
+    21300014: sprSF_Belt
+    21300016: sprSF_ClothFront
+    21300018: sprSF_ClothBack
+    21300020: sprSF_Head
+    21300022: sprSF_LegRightUpper
+    21300024: sprSF_LegRightLower
+    21300026: sprSF_FootRight
+    21300028: sprSF_LegLeftUpper
+    21300030: sprSF_LeftLeftLower
+    21300032: sprSF_FootLeft
+    21300034: sprSF_Sword
+    21300036: sprSF_Shield
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 512
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sprSF_ArmRightUpper
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 880
+        width: 135
+        height: 100
+      alignment: 9
+      pivot: {x: .848083377, y: .612193584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_ArmRightLower
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 720
+        width: 120
+        height: 125
+      alignment: 9
+      pivot: {x: .849997222, y: .785280764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_HandRight
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 595
+        width: 87
+        height: 95
+      alignment: 9
+      pivot: {x: .725406945, y: .78720063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_Torso
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 638
+        width: 190
+        height: 220
+      alignment: 9
+      pivot: {x: .553074241, y: .234839693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_ArmLeftUpper
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 909
+        width: 138
+        height: 107
+      alignment: 9
+      pivot: {x: .146215692, y: .632081807}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_ArmLeftLower
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 930
+        width: 132
+        height: 80
+      alignment: 9
+      pivot: {x: .161637276, y: .550755322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_HandLeft
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 917
+        width: 85
+        height: 85
+      alignment: 9
+      pivot: {x: .136508361, y: .513980627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_Belt
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 748
+        width: 180
+        height: 110
+      alignment: 9
+      pivot: {x: .5, y: .683651984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_ClothFront
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 545
+        width: 80
+        height: 160
+      alignment: 9
+      pivot: {x: .51632309, y: .867274463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_ClothBack
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 507
+        width: 187
+        height: 107
+      alignment: 9
+      pivot: {x: .548882484, y: .878334701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_Head
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 587
+        width: 300
+        height: 320
+      alignment: 9
+      pivot: {x: .613655984, y: .129382893}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_LegRightUpper
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 322
+        width: 115
+        height: 185
+      alignment: 9
+      pivot: {x: .601333082, y: .865346849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_LegRightLower
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 105
+        width: 90
+        height: 160
+      alignment: 9
+      pivot: {x: .474103719, y: .878732204}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_FootRight
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 16
+        width: 135
+        height: 70
+      alignment: 9
+      pivot: {x: .232405484, y: .816304207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_LegLeftUpper
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 313
+        width: 130
+        height: 178
+      alignment: 9
+      pivot: {x: .257969558, y: .846980393}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_LeftLeftLower
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 140
+        width: 87
+        height: 160
+      alignment: 9
+      pivot: {x: .5, y: .834314704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_FootLeft
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 52
+        width: 132
+        height: 70
+      alignment: 9
+      pivot: {x: .227089733, y: .670125186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_Sword
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 100
+        width: 100
+        height: 400
+      alignment: 9
+      pivot: {x: .5, y: .179196775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprSF_Shield
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 10
+        width: 200
+        height: 500
+      alignment: 9
+      pivot: {x: .465628356, y: .50000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
