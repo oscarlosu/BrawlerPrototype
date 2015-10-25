@@ -590,7 +590,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Attack1
+  m_Name: ActionA
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -618,7 +618,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Defend
+  m_Name: ActionB
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -685,7 +685,7 @@ AnimatorStateMachine:
     m_Position: {x: 456, y: 204, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110254394}
-    m_Position: {x: 492, y: -24, z: 0}
+    m_Position: {x: 456, y: -24, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

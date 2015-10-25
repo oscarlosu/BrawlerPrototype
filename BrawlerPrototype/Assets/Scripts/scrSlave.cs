@@ -2,8 +2,15 @@
 using System.Collections;
 using System;
 
-public class scrSlave : scrObserver
+public class scrSlave : MessageBehaviour
 {
+    // Actions.
+    public GameObject ActionAPrefab;
+    public GameObject ActionBPrefab;
+    public GameObject ActionXPrefab;
+    public GameObject ActionYPrefab;
+    
+
     // Attributes
     public int damage;
     public int defence;
@@ -14,7 +21,7 @@ public class scrSlave : scrObserver
     new Rigidbody2D rigidbody;
 
     // Use this for initialization
-    void Start()
+    protected override void OnStart()
     {
         anim = transform.GetChild(0).GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
@@ -39,11 +46,9 @@ public class scrSlave : scrObserver
         // Update animation parameters
         anim.SetFloat("axisX", axisX);
         anim.SetFloat("axisY", axisY);
-
-        //if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2") && !Input.GetButton("Fire3") && !Input.GetButton("Fire4"))
+        
         if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Uninterruptable") && !Input.GetButton("Fire1") && !Input.GetButton("Fire2") && !Input.GetButton("Fire3") && !Input.GetButton("Fire4"))
         {
-            Debug.Log("Uninterruptable");
             // Handle facing direction changes
             if (!facingLeft && axisX < 0)
             {
@@ -73,12 +78,18 @@ public class scrSlave : scrObserver
 
     void ActionA()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionA"))
         {
             anim.SetBool("actionA", true);
+            // Create the action A prefab.
+            var actionAObj = GameObject.Instantiate(ActionAPrefab);
+            // Set its creator to the current player.
+            actionAObj.GetComponent<scrAction>().Creator = this.gameObject;
+            // Set the current player as the action object's parent.
+            actionAObj.transform.parent = this.transform;
             Debug.Log("ActionA taking place");
         }
-        else if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1"))
         {
             anim.SetBool("actionA", false);
         }
@@ -87,26 +98,33 @@ public class scrSlave : scrObserver
 
     void ActionB()
     {
-        if(Input.GetButtonDown("Fire2"))
+        if(Input.GetButtonDown("Fire2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionB"))
         {
             anim.SetBool("actionB", true);
+            // Create the action B prefab.
+            var actionBObj = GameObject.Instantiate(ActionBPrefab);
+            // Set its creator to the current player.
+            actionBObj.GetComponent<scrAction>().Creator = this.gameObject;
+            // Set the current player as the action object's parent.
+            actionBObj.transform.parent = this.transform;
             Debug.Log("ActionB taking place");
         }
-        else if (Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonUp("Fire2"))
         {
             anim.SetBool("actionB", false);
+            Messenger.SendToListeners(new Message(gameObject, "ActionBUp", ""));
         }
         
     }
 
     void ActionX()
     {
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionX"))
         {
             anim.SetBool("actionX", true);
             Debug.Log("ActionX taking place");
         }
-        else if (Input.GetButtonUp("Fire3"))
+        if (Input.GetButtonUp("Fire3"))
         {
             anim.SetBool("actionX", false);
         }
@@ -115,40 +133,17 @@ public class scrSlave : scrObserver
 
     void ActionY()
     {
-        if (Input.GetButtonDown("Fire4"))
+        if (Input.GetButtonDown("Fire4") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionY"))
         {
             anim.SetBool("actionY", true);
             Debug.Log("ActionY taking place");
         }
-        else if (Input.GetButtonUp("Fire4"))
+        if (Input.GetButtonUp("Fire4"))
         {
             anim.SetBool("actionY", false);
         }
 
     }
 
-
-
-    public override void Notify(scrObservable mine)
-    {
-        Debug.Log("scrObservable mine");
-    }
-
-    public override void Notify(scrObservable mine, scrObservable other)
-    {
-        Debug.Log("scrObservable mine, scrObservable other");
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // If the slave collides with an observable that is not his
-        scrObservable obs = other.gameObject.GetComponent<scrObservable>();
-        if (obs != null && obs.Obs != this)
-        {
-            // Handle effect
-            Debug.Log("Touché!");
-        }
-        
-
-    }
+    
 }

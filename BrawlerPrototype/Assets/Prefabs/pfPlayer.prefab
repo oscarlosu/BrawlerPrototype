@@ -40,9 +40,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494678}
+  - 50: {fileID: 5041358}
+  - 114: {fileID: 11471160}
+  - 61: {fileID: 6160424}
   m_Layer: 0
   m_Name: pfPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -578,6 +581,35 @@ Transform:
   - {fileID: 437870}
   m_Father: {fileID: 492114}
   m_RootOrder: 0
+--- !u!50 &5041358
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118022}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &6160424
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118022}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: .800000012, y: .300000012}
 --- !u!95 &9581932
 Animator:
   serializedVersion: 3
@@ -595,6 +627,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11471160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38de7b5c656e7d24f8a532b69aaeac88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionAPrefab: {fileID: 181406, guid: 4f7ecfe125789214bb1b484bb77b49ef, type: 2}
+  ActionBPrefab: {fileID: 152774, guid: e09584c20fb280649adea6d47210821d, type: 2}
+  ActionXPrefab: {fileID: 0}
+  ActionYPrefab: {fileID: 0}
+  damage: 0
+  defence: 0
+  speed: 1
 --- !u!212 &21206704
 SpriteRenderer:
   m_ObjectHideFlags: 1

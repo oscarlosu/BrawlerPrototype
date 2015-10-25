@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 473938}
   - 61: {fileID: 6145208}
   - 95: {fileID: 9593396}
+  - 114: {fileID: 11425580}
   m_Layer: 0
   m_Name: pfSwordDefend
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.28591681, y: .217104554, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37,11 +38,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 152774}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 9.99999975e-05, y: .129999995}
+  m_Size: {x: .200000003, y: .129999995}
 --- !u!95 &9593396
 Animator:
   serializedVersion: 3
@@ -59,6 +60,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11425580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3533cc42cae4ec94b80afefad4e0f3fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionOffset: .600000024
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -69,6 +82,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ActionOffset
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
