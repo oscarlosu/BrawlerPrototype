@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using GamepadInput;
 
 public class scrSlave : MessageBehaviour
 {
@@ -9,12 +10,14 @@ public class scrSlave : MessageBehaviour
     public GameObject ActionBPrefab;
     public GameObject ActionXPrefab;
     public GameObject ActionYPrefab;
+
+    public GamePad.Index ControllerIndex;
     
 
     // Attributes
     public int damage;
     public int defence;
-    public float speed = 3;
+    public float speed;
 
     Animator anim;
     bool facingLeft = false;
@@ -23,6 +26,7 @@ public class scrSlave : MessageBehaviour
     // Use this for initialization
     protected override void OnStart()
     {
+        
         anim = transform.GetChild(0).GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -41,13 +45,13 @@ public class scrSlave : MessageBehaviour
     void HandleMovement()
     {
         // Get left joystick input
-        float axisX = Input.GetAxis("Horizontal");
-        float axisY = Input.GetAxis("Vertical");
+        float axisX = GamePad.GetAxis(GamePad.Axis.LeftStick, ControllerIndex).x;
+        float axisY = GamePad.GetAxis(GamePad.Axis.LeftStick, ControllerIndex).y;
         // Update animation parameters
         anim.SetFloat("axisX", axisX);
         anim.SetFloat("axisY", axisY);
         
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Uninterruptable") && !Input.GetButton("Fire1") && !Input.GetButton("Fire2") && !Input.GetButton("Fire3") && !Input.GetButton("Fire4"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Uninterruptable") && !GamePad.GetButton(GamePad.Button.A, ControllerIndex) && !GamePad.GetButton(GamePad.Button.B, ControllerIndex) && !GamePad.GetButton(GamePad.Button.X, ControllerIndex) && !GamePad.GetButton(GamePad.Button.Y, ControllerIndex))
         {
             // Handle facing direction changes
             if (!facingLeft && axisX < 0)
@@ -78,7 +82,8 @@ public class scrSlave : MessageBehaviour
 
     void ActionA()
     {
-        if (Input.GetButtonDown("Fire1") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionA"))
+        
+        if (CanActivateButton("A"))
         {
             anim.SetBool("actionA", true);
             // Create the action A prefab.
@@ -89,7 +94,11 @@ public class scrSlave : MessageBehaviour
             actionAObj.transform.parent = this.transform;
             Debug.Log("ActionA taking place");
         }
-        if (Input.GetButtonUp("Fire1"))
+        else
+        {
+            anim.SetBool("actionA", false);
+        }
+        if (GamePad.GetButtonUp(GamePad.Button.A, ControllerIndex))
         {
             anim.SetBool("actionA", false);
         }
@@ -98,7 +107,7 @@ public class scrSlave : MessageBehaviour
 
     void ActionB()
     {
-        if(Input.GetButtonDown("Fire2") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionB"))
+        if(CanActivateButton("B"))
         {
             anim.SetBool("actionB", true);
             // Create the action B prefab.
@@ -109,7 +118,7 @@ public class scrSlave : MessageBehaviour
             actionBObj.transform.parent = this.transform;
             Debug.Log("ActionB taking place");
         }
-        if (Input.GetButtonUp("Fire2"))
+        if (GamePad.GetButtonUp(GamePad.Button.B, ControllerIndex))
         {
             anim.SetBool("actionB", false);
             Messenger.SendToListeners(new Message(gameObject, "ActionBUp", ""));
@@ -119,12 +128,12 @@ public class scrSlave : MessageBehaviour
 
     void ActionX()
     {
-        if (Input.GetButtonDown("Fire3") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionX"))
+        if (CanActivateButton("X"))
         {
             anim.SetBool("actionX", true);
             Debug.Log("ActionX taking place");
         }
-        if (Input.GetButtonUp("Fire3"))
+        if (GamePad.GetButtonUp(GamePad.Button.X, ControllerIndex))
         {
             anim.SetBool("actionX", false);
         }
@@ -133,17 +142,51 @@ public class scrSlave : MessageBehaviour
 
     void ActionY()
     {
-        if (Input.GetButtonDown("Fire4") && !anim.GetCurrentAnimatorStateInfo(0).IsName("ActionY"))
+        if (CanActivateButton("Y"))
         {
             anim.SetBool("actionY", true);
             Debug.Log("ActionY taking place");
         }
-        if (Input.GetButtonUp("Fire4"))
+        if (GamePad.GetButtonUp(GamePad.Button.Y, ControllerIndex))
         {
             anim.SetBool("actionY", false);
         }
 
     }
 
-    
+    private bool CanActivateButton(string button)
+    {
+        switch (button)
+        {
+            case "A":
+                return (GamePad.GetButtonDown(GamePad.Button.A, ControllerIndex)
+                    && !anim.GetCurrentAnimatorStateInfo(0).IsName("Action" + button)
+                    && !anim.GetBool("action" + button)
+                    && !GamePad.GetButton(GamePad.Button.B, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.X, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.Y, ControllerIndex));
+            case "B":
+                return (GamePad.GetButtonDown(GamePad.Button.B, ControllerIndex)
+                    && !anim.GetCurrentAnimatorStateInfo(0).IsName("Action" + button)
+                    && !anim.GetBool("action" + button)
+                    && !GamePad.GetButton(GamePad.Button.A, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.X, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.Y, ControllerIndex));
+            case "X":
+                return (GamePad.GetButtonDown(GamePad.Button.X, ControllerIndex)
+                    && !anim.GetCurrentAnimatorStateInfo(0).IsName("Action" + button)
+                    && !anim.GetBool("action" + button)
+                    && !GamePad.GetButton(GamePad.Button.A, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.B, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.Y, ControllerIndex));
+            case "Y":
+                return (GamePad.GetButtonDown(GamePad.Button.Y, ControllerIndex)
+                    && !anim.GetCurrentAnimatorStateInfo(0).IsName("Action" + button)
+                    && !anim.GetBool("action" + button)
+                    && !GamePad.GetButton(GamePad.Button.A, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.B, ControllerIndex)
+                    && !GamePad.GetButtonDown(GamePad.Button.X, ControllerIndex));
+        }
+        return false;
+    }
 }

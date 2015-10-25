@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 429958}
   - 61: {fileID: 6197654}
   - 95: {fileID: 9508048}
+  - 114: {fileID: 11485786}
   m_Layer: 0
   m_Name: pfSwordAttack1
   m_TagString: Blockable
@@ -59,6 +60,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11485786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db92f22b8bde7b47be430f38f2ff2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimSpeed: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -69,6 +82,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Blockable
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AnimSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
