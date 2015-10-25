@@ -40,10 +40,11 @@ public class scrSlave : scrObserver
         anim.SetFloat("axisX", axisX);
         anim.SetFloat("axisY", axisY);
 
-        if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2") && !Input.GetButton("Fire3") && !Input.GetButton("Fire4"))
+        //if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2") && !Input.GetButton("Fire3") && !Input.GetButton("Fire4"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Uninterruptable") && !Input.GetButton("Fire1") && !Input.GetButton("Fire2") && !Input.GetButton("Fire3") && !Input.GetButton("Fire4"))
         {
-            
-            // Handle facing directino changes
+            Debug.Log("Uninterruptable");
+            // Handle facing direction changes
             if (!facingLeft && axisX < 0)
             {
                 ChangeFacingDir();
